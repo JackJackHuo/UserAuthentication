@@ -29,13 +29,52 @@
 
 > `$ npm install`
 
-3. 1 Initiate express server
+3. Create users from seeder
+
+> `$ npm run seed`
+
+4. 1 Initiate express server
 
 > `$ npm run start`
 
-3. 2 if you want to update server automatically whenever code is being modified. Please install nodemon in advance
+4. 2 if you want to update server automatically whenever code is being modified. Please install nodemon in advance
 
 > `$ npm install -g nodemon `
 > `$ npm run dev`
 
-4. Open browser and key in url **localhpst:3000**
+5. Open browser and key in url **localhpst:3000**
+
+6. Try to log in with email and password listed as following:
+
+```json
+{
+  "users": [
+      {
+        "firstName": "Tony",
+        "email": "tony@stark.com",
+        "password": "iamironman"
+      },
+      {
+        "firstName": "Steve",
+        "email": "captain@hotmail.com",
+        "password": "icandothisallday"
+      },
+      {
+        "firstName": "Peter",
+        "email": "peter@parker.com",
+        "password": "enajyram"
+      },
+      {
+        "firstName": "Natasha",
+        "email": "natasha@gamil.com",
+        "password": "*parol#@$!"
+      },
+      {
+        "firstName": "Nick",
+        "email": "nick@shield.com",
+        "password": "password"
+      }
+    ]
+}
+```
+
