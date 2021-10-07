@@ -9,12 +9,13 @@ router.post('/', (req, res) => {
       .then(user => {
         if (user) {
           if (user.password === password) {
+            // res.clearCookie('firstName')
             res.render('login', { user: user })
           } else {
-            res.redirect('/?warning=wrong password')
+            res.redirect('/?message=wrong password')
           }
         } else {
-          res.redirect('/?warning=no user found')
+          res.redirect('/?message=no user found')
         }
       }
     )

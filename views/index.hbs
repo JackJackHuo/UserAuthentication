@@ -14,14 +14,15 @@
             <small class="invalid-feedback">This field is required</small>
             <small class="valid-feedback">Good</small>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+          <a class="btn btn-danger" href="/signup">Sign Up</a>
         </div>
       </form>
     </div>
   </div>
 </div>
-{{#if warning}}
+{{#if message}}
   <script>
-    alert(`{{warning}}`)
+    alert("{{message}}")
   </script>
 {{/if}}
