@@ -6,9 +6,9 @@ const session = {}
 
 // home page
 router.get('/', (req, res) => {
+  const cookie = req.signedCookies
   console.log(session)
   console.log(cookie)
-  const cookie = req.signedCookies
   // 檢查session中是否有存放此用戶的cookie
   if (Object.keys(session).some(sessionId => sessionId === cookie.session_id)){
     // 從session中抓出登入者的cookie
@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
             // 寫入cookie
             // signed:true代表寫入cookie時有利用app.js裡面的cookieParser('secretcode')上簽章
             // maxAge設cookie多少millisecond後消失
-            res.cookie('session_id', session_id , {signed:true , path:'/' , maxAge: 5000})
+            res.cookie('session_id', session_id , {signed:true , path:'/' , maxAge: 60000})
             res.redirect('/')
           } else {
             res.redirect('/login?message=wrong password')
