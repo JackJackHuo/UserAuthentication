@@ -7,16 +7,15 @@ const session = {}
 // home page
 router.get('/', (req, res) => {
   const cookie = req.signedCookies
+  const user = Object.keys(session).find(sessionId => sessionId === cookie.session_id)
   console.log(session)
   console.log(cookie)
   // 檢查session中是否有存放此用戶的cookie
-  if (Object.keys(session).some(sessionId => sessionId === cookie.session_id)){
-    // 從session中抓出登入者的cookie
-    const user = Object.keys(session).find(sessionId => sessionId === cookie.session_id)
+  if (user){
+    // 從session中抓出登入者的cookie 
     User.findOne({ _id: session[user].user_id })
         .lean()
         .then(user => res.render('loggedIn' , { user: user }))
-    // console.log(session[user].userId)
   }else{
     res.render('index')
   }
